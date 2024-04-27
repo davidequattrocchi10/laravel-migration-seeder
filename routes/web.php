@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\TrainController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [TrainController::class, 'index'])->name('home');
+
+Route::get('/Milan', [TrainController::class, 'fromMilan'])->name('trains_Milan');
+
+Route::get('/high', [TrainController::class, 'highSpeed'])->name('highSpeed');
+
+Route::get('/Rome', [TrainController::class, 'fromRome'])->name('trains_Rome');
